@@ -15,6 +15,17 @@ def generate_random_walk():
     color_numbers = range(graph.num_points)
     ax.scatter(graph.x_values, graph.y_values, s=15, c=color_numbers,
                cmap='PuBuGn', edgecolors='none')
+
+    # emphasize first and last points
+    ax.scatter(0, 0, c='green', s=100, edgecolors='none')
+    ax.scatter(graph.x_values[-1], graph.y_values[-1], c='red', s=100,
+               edgecolors='none')
+
+    # add label and title
+    ax.set_xlabel('x', fontsize=14)
+    ax.set_ylabel('y', fontsize=14)
+    ax.set_title('Random Walks', fontsize=24, color='Blue')
+    
     plt.show()
 
 def main():
