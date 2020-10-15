@@ -1,13 +1,12 @@
 import matplotlib.pyplot as plt
 from random_walk import RandomWalk
 
-
-def generate_random_walk():
-    graph = RandomWalk()
+def generate_random_walk(size):
+    graph = RandomWalk(size)
     graph.generate_walks()
     # plot random walk
     plt.style.use("classic")
-    fig, ax = plt.subplots()  # default is 1 chart
+    fig, ax = plt.subplots(figsize=(15, 9))  # default is 1 chart
 
     # se color map to generate color.  cmap requires c and cmap as args
     # c must be 1) seq of number specified by length n
@@ -25,15 +24,17 @@ def generate_random_walk():
     ax.set_xlabel('x', fontsize=14)
     ax.set_ylabel('y', fontsize=14)
     ax.set_title('Random Walks', fontsize=24, color='Blue')
-    
+
     plt.show()
 
 def main():
-    while True:
-        generate_random_walk()
-        answer = input("Do you want another graph? y/n  ")
-        if answer.lower() == 'n':
-            break
+    # while True:
+    #     generate_random_walk()
+    #     answer = input("Do you want another graph? y/n  ")
+    #     if answer.lower() == 'n':
+    #         break
+    sample_size = 50000
+    generate_random_walk(sample_size)
 
 
 # Press the green button in the gutter to run the script.
