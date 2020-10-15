@@ -8,7 +8,13 @@ def generate_random_walk():
     # plot random walk
     plt.style.use("classic")
     fig, ax = plt.subplots()  # default is 1 chart
-    ax.scatter(graph.x_values, graph.y_values, s=15)
+
+    # se color map to generate color.  cmap requires c and cmap as args
+    # c must be 1) seq of number specified by length n
+    #2) an array 3) single color format string, in this case, we use 1)
+    color_numbers = range(graph.num_points)
+    ax.scatter(graph.x_values, graph.y_values, s=15, c=color_numbers,
+               cmap='PuBuGn', edgecolors='none')
     plt.show()
 
 def main():

@@ -4,11 +4,10 @@ class RandomWalk:
     """A class to generate points of random walks"""
 
     def __init__(self, num_points=5000):
-        # set default num_points=5000
-        self.num_points = num_points
         # initializes 2 lists for x, y values (starting at 0,0)
         self.x_values = [0]
         self.y_values = [0]
+        self.num_points = num_points
 
     def generate_walks(self):
         """Generates all points in random walks"""
