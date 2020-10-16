@@ -3,11 +3,12 @@ from random import choice
 class RandomWalk:
     """A class to generate points of random walks"""
 
-    def __init__(self, num_points=5000):
+    def __init__(self, num_points=5000, cmap='PuBuGn'):
         # initializes 2 lists for x, y values (starting at 0,0)
         self.x_values = [0]
         self.y_values = [0]
         self.num_points = num_points
+        self.cmap = cmap
 
     def generate_walks(self):
         """Generates all points in random walks"""
@@ -32,4 +33,7 @@ class RandomWalk:
     def print_graph(self):
         for i in range(len(self.x_values)):
             print(f'({self.x_values[i]}, {self.y_values[i]})')
+
+    def set_cmap(self, color):
+        self.cmap = color
 

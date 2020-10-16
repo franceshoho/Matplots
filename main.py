@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 from random_walk import RandomWalk
 
-def generate_random_walk(size):
+def generate_random_walk(size, colormap="PuBuGn"):
     graph = RandomWalk(size)
     graph.generate_walks()
+    #graph.set_cmap(colormap)
     # plot random walk
     plt.style.use("classic")
     fig, ax = plt.subplots(figsize=(15, 9))  # default is 1 chart
@@ -13,7 +14,7 @@ def generate_random_walk(size):
     #2) an array 3) single color format string, in this case, we use 1)
     color_numbers = range(graph.num_points)
     ax.scatter(graph.x_values, graph.y_values, s=15, c=color_numbers,
-               cmap='PuBuGn', edgecolors='none')
+               edgecolors='none', cmap=colormap)
 
     # emphasize first and last points
     ax.scatter(0, 0, c='green', s=100, edgecolors='none')
@@ -35,6 +36,8 @@ def main():
     #         break
     sample_size = 50000
     generate_random_walk(sample_size)
+    generate_random_walk(sample_size, 'Greys')
+    generate_random_walk(sample_size, 'plasma')
 
 
 # Press the green button in the gutter to run the script.
