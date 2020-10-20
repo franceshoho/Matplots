@@ -6,26 +6,21 @@ filename = 'Data/death_valley_2018_full.csv'
 with open(filename) as file:
     reader = csv.reader(file)
     header_row = next(reader)
-    for i, header in enumerate(header_row):
-        print(i, header)
+    # for i, header in enumerate(header_row):
+    #     print(i, header)
 
     lows, highs, dates = [], [], []
     for row in reader:
         date = datetime.strptime(row[2], "%Y-%m-%d")
-        low = int(row[7])
-        high = int(row[6])
-        dates.append(date)
-        lows.append(low)
-        highs.append(high)
-#     # get min and max temp
-#     lows, highs, dates = [], [], []
-#     for row in reader:
-#         date = datetime.strptime(row[2], '%Y-%m-%d')
-#         high = int(row[5])
-#         low = int(row[6])
-#         dates.append(date)
-#         highs.append(high)
-#         lows.append(low)
+        try:
+            low = int(row[7])
+            high = int(row[6])
+        except ValueError:
+            print("Missing data for", date)
+        else:
+            dates.append(date)
+            lows.append(low)
+            highs.append(high)
 #
 # print(f'Highs in dead valley: {highs}')
 # print(f'Lows in dead valley: {lows}')
