@@ -27,13 +27,15 @@ plt.style.use('seaborn')
 fig, ax = plt.subplots()
 # ax.plot(x, y, c, label, fontsize, etc.)
 # if you don't specify x, you get default 0-#
-ax.plot(dates, highs, c='red', label='High')
-ax.plot(dates, lows, c='blue', label='Low')
+ax.plot(dates, highs, c='red', label='High', alpha=0.5)
+ax.plot(dates, lows, c='blue', label='Low', alpha=0.5)  # half transparency
+# fill between 2 lines
+ax.fill_between(dates, highs, lows, facecolor="blue", alpha=0.1)
 ax.set_title('Daily High and Low Temp - 2018', fontsize = 24)
 ax.set_xlabel('', fontsize=16)
 fig.autofmt_xdate()         # print date diag. so no overlap
 ax.set_ylabel("Temp (F)", fontsize=16)
+ax.legend(loc='upper left')
 ax.tick_params(axis='both', which='major', labelsize=16)
-plt.legend()
 plt.show()
 
